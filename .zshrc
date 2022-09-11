@@ -66,6 +66,8 @@ alias hist="history | fzf"
 
 alias python="/usr/local/bin/python3"
 alias piplist="pipdeptree -l | grep '^[a-z]'"
+
+#TODO: actually find a proper way to deploy this
 alias pmon="python /usr/local/bin/portmon.py"
 
 #alias git-cp='git add -A && git commit -m "$(git status | grep -E '(new|modified|deleted)')"' 
