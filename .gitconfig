@@ -1,0 +1,36 @@
+[user]
+	name = Giorgio
+	email = giorgio.valbonesi@gmail.com
+[core]
+	pager = less -F -X
+	excludesfile = /Users/onval/.gitignore_global
+[alias]
+	lg = log --oneline --decorate
+	lgg = lg -30 --all --graph
+	st = status
+	co = checkout
+	cp = !git add -A && git commit -m "$(git status | grep -E '(new|modified|deleted)')"
+	sw = switch
+	cm = commit
+	root = rev-parse --show-toplevel
+	ls = ls-tree -r --name-only
+[credential]
+	helper = osxkeychain
+[github]
+	user = ovalb
+[ghi]
+	token = !security find-internet-password -a onVal -s github.com -l 'ghi token' -w
+[diff]
+	tool = vscode
+[difftool "vscode"]
+	cmd = code -w -d -n $LOCAL $REMOTE
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[init]
+	defaultBranch = main
+[commit]
+	template = /Users/onval/.stCommitMsg
