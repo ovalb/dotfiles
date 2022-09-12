@@ -52,6 +52,13 @@ export LSCOLORS=cxdxdxBxfxDxexfxbxgxcx
 export LS_COLORS="di=34;40:ln=31;40:so=31;40:pi=31;40:ex=32;40:bd=36;40:cd=36;40:su=31;40:sg=31;40:tw=31;40:ow=31;40:"
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
+opt() {
+	man $1 | awk 'BEGIN{print "OPTIONS"} /^ +-/' | less
+}
+
+# Disable Oh-my-zsh autoupdate
+DISABLE_AUTO_UPDATE="true"
+
 # Aliases
 alias ls="ls -G"
 alias dc="cd"
@@ -72,9 +79,4 @@ alias pmon="python /usr/local/bin/portmon.py"
 
 #alias git-cp='git add -A && git commit -m "$(git status | grep -E '(new|modified|deleted)')"' 
 
-opt() {
-	man $1 | awk 'BEGIN{print "OPTIONS"} /^ +-/' | less
-}
-
-# Disable Oh-my-zsh autoupdate
-DISABLE_AUTO_UPDATE="true"
+alias config='/usr/local/bin/git --git-dir=/Users/onval/.dots --work-tree=/Users/onval'

@@ -10,8 +10,10 @@
 	st = status
 	co = checkout
 	cp = !git add -A && git commit -m "$(git status | grep -E '(new|modified|deleted)')"
+	br = branch
 	sw = switch
 	cm = commit
+	rs = restore
 	root = rev-parse --show-toplevel
 	ls = ls-tree -r --name-only
 [credential]
