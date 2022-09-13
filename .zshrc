@@ -52,8 +52,17 @@ export LSCOLORS=cxdxdxBxfxDxexfxbxgxcx
 export LS_COLORS="di=34;40:ln=31;40:so=31;40:pi=31;40:ex=32;40:bd=36;40:cd=36;40:su=31;40:sg=31;40:tw=31;40:ow=31;40:"
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
+# Functions
 opt() {
 	man $1 | awk 'BEGIN{print "OPTIONS"} /^ +-/' | less
+}
+
+# precmd is run after every single command bro
+# This is to avoid sourcing every single tty after a change in zshrc
+# https://superuser.com/questions/570000/source-new-bashrc-in-all-open-terminals
+zshrc_sourced=$(stat -f %m ~/.zshrc)
+precmd() {
+	test $(stat -f %m ~/.zshrc) -ne $zshrc_sourced && source ~/.zshrc
 }
 
 # Disable Oh-my-zsh autoupdate
@@ -70,6 +79,11 @@ alias dk="docker"
 alias dcmp="docker compose"
 
 alias hist="history | fzf"
+
+alias cat="bat"
+alias catp="bat package.json"
+
+alias vi=nvim
 
 alias python="/usr/local/bin/python3"
 alias piplist="pipdeptree -l | grep '^[a-z]'"
