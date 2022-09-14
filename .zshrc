@@ -1,6 +1,9 @@
 #THIS FILE HAS TO BE HIDDEN IN THE HOME DIRECTORY
 source /usr/local/Cellar/fzf/0.33.0/shell/completion.zsh
 
+# Sourcing the zsh-vi-mode, installed with brew
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Path to your oh-my-zsh installation.
@@ -83,7 +86,7 @@ alias hist="history | fzf"
 alias cat="bat"
 alias catp="bat package.json"
 
-alias vi=nvim
+alias {v,vi,vim}=nvim
 
 alias python="/usr/local/bin/python3"
 alias piplist="pipdeptree -l | grep '^[a-z]'"
