@@ -9,8 +9,8 @@
 	lgg = lg -30 --all --graph
 	st = status
 	co = checkout
-	cp = !git add -A && git commit -m "$(git status | grep -E '(new|modified|deleted)')"
 	br = branch
+    rb = rebase
 	sw = switch
 	cm = commit
 	rs = restore
@@ -36,3 +36,5 @@
 	defaultBranch = main
 [commit]
 	template = /Users/onval/.stCommitMsg
+[rerere]
+	enabled = true

@@ -85,7 +85,7 @@ alias hist="history | fzf"
 
 alias cat="bat"
 alias catp="bat package.json"
-
+alias nr="npm run"
 alias {v,vi,vim}=nvim
 
 alias python="/usr/local/bin/python3"
