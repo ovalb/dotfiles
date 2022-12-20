@@ -24,23 +24,21 @@ export ANDROID_AVD_HOME="$HOME/.android/avd"
 
 export DEV_HOME="$HOME/development"
 export WIRESHARK_HOME="/Applications/Wireshark.app/Contents/MacOS"
-export RUBY_PATHS="$HOME/.gem/ruby/2.6.0/bin:$HOME/.rvm/bin"
+# export RUBY_PATHS="$HOME/.gem/ruby/2.6.0/bin:$HOME/.rvm/bin"
 export PROMPT_EOL_MARK=''
 
 export LANG=en_US.UTF-8
 
 export GOPATH="$HOME/go"
-
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin"
-# Created by `pipx` on 2022-02-11 15:54:10
-export PATH="$PATH:/Users/onval/.local/bin"
-
-export PATH="$PATH:/usr/local/Cellar/binutils/2.34/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:$HOME/.local/bin"
+export PATH="$PATH:/usr/local/Cellar/binutils/2.38.1/bin"
 export PATH="$PATH:$DEV_HOME/flutter/bin:$DEV_HOME/google-cloud-sdk/bin"
 export PATH="$PATH:$HOME/go/bin"
 
-export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools/bin:$ANDROID_AVD_HOME"
-export PATH="$PATH:$WIRESHARK_HOME:$RUBY_PATHS"
+export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/emulator:$ANDROID_AVD_HOME"
+export PATH="$PATH:$WIRESHARK_HOME"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+#export PATH="$PATH:$HOME/.rvm/gems/ruby-3.0.0/bin"
 
 export CLICOLORS=1
 
@@ -65,8 +63,7 @@ opt() {
 # https://superuser.com/questions/570000/source-new-bashrc-in-all-open-terminals
 zshrc_sourced=$(stat -f %m ~/.zshrc)
 precmd() {
-	test $(stat -f %m ~/.zshrc) -ne $zshrc_sourced && source ~/.zshrc
-}
+	test $(stat -f %m ~/.zshrc) -ne $zshrc_sourced && source ~/.zshrc }
 
 # Disable Oh-my-zsh autoupdate
 DISABLE_AUTO_UPDATE="true"
