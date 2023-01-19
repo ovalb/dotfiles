@@ -80,10 +80,15 @@ alias dcmp="docker compose"
 
 alias hist="history | fzf"
 
-alias cat="bat"
 alias catp="bat package.json"
+alias scr="cat package.json | jq \".scripts\""
+
 alias nr="npm run"
 alias {v,vi,vim}=nvim
+
+# Docker!
+alias dr="docker run --rm -it"
+alias db="docker build"
 
 alias python="/usr/local/bin/python3"
 alias piplist="pipdeptree -l | grep '^[a-z]'"
