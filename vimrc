@@ -10,7 +10,7 @@ set ruler
 set hlsearch
 set noswapfile
 set cursorline
-set t_Co=256 
+set t_Co=256
 
 imap jj <Esc>
 noremap <Up> <Nop>
@@ -19,5 +19,3 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-
-colorscheme noctu

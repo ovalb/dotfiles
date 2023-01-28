@@ -1,9 +1,9 @@
 [user]
-	name = Giorgio
+	name = ovalb
 	email = giorgio.valbonesi@gmail.com
 [core]
 	pager = less -F -X
-	excludesfile = /Users/onval/.gitignore_global
+	excludesfile = /Users/ovalb/.gitignore_global
 [alias]
 	lg = log --oneline --decorate
 	lgg = lg -30 --all --graph
@@ -14,30 +14,22 @@
 	sw = switch
 	cm = commit
 	rs = restore
+    cpick = cherry-pick
     dfs = diff --staged -- ':!package-lock.json'
     df = diff -- ':!package-lock.json'
-    cpick = cherry-pick
-	root = rev-parse --show-toplevel
 	ls = ls-tree -r --name-only
+	root = rev-parse --show-toplevel
 [credential]
 	helper = osxkeychain
 [github]
 	user = ovalb
-[ghi]
-	token = !security find-internet-password -a onVal -s github.com -l 'ghi token' -w
-[diff]
-	tool = vscode
-[difftool "vscode"]
-	cmd = code -w -d -n $LOCAL $REMOTE
+[rerere]
+	enabled = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
-[init]
-	defaultBranch = main
 [commit]
-	template = /Users/onval/.stCommitMsg
-[rerere]
-	enabled = true
+	template = /Users/ovalb/.stCommitMsg
