@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [ "$#" -lt 1 ]; then
+  echo "Usage: $0 <file1> [file2 ...]"
+  echo "Example: $0 tmux.conf zshrc"
+  exit 1
+fi
+
+repo_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+for name in "$@"; do
+  src="$repo_dir/$name"
+  target_name=".${name#.}"
+  dst="$HOME/$target_name"
+  backup="${dst}.old"
+
+  if [ ! -f "$src" ]; then
+    echo "Missing source file: $src"
+    exit 1
+  fi
+
+  if [ -e "$dst" ]; then
+    mv -f "$dst" "$backup"
+    echo "Backed up $dst -> $backup"
+  fi
+
+  cp "$src" "$dst"
+  echo "Copied $src -> $dst"
+done

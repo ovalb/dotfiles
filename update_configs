@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+repo_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+cp "$HOME/.tmux.conf" "$repo_dir/tmux.conf"
+cp "$HOME/.zshrc" "$repo_dir/zshrc"
+
+git -C "$repo_dir" add tmux.conf zshrc
+
+echo "Updated tmux.conf and zshrc, then staged both files."
