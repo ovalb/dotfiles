@@ -1,9 +1,6 @@
 # export ZSH="$HOME/.oh-my-zsh"
 export ANDROID_HOME="$HOME/Library/Android/sdk/"
 
-plugins=(git)
-# source $ZSH/oh-my-zsh.sh
-
 # precmd is run after every single command bro
 # This is to avoid sourcing every single tty after a change in zshrc
 # https://superuser.com/questions/570000/source-new-bashrc-in-all-open-terminals
@@ -93,3 +90,14 @@ export PATH="/opt/homebrew/opt/icu4c/bin:$PATH"
 export PATH="/opt/homebrew/opt/icu4c/sbin:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+
+# Update prompt with git branch
+setopt PROMPT_SUBST
+
+parse_git_branch() {
+  local b
+  b=$(git symbolic-ref --quiet --short HEAD 2>/dev/null) || return
+  echo " ($b)"
+}
+
+PS1="%n@%m %1~\$(parse_git_branch) %# "
