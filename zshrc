@@ -97,7 +97,7 @@ setopt PROMPT_SUBST
 parse_git_branch() {
   local b
   b=$(git symbolic-ref --quiet --short HEAD 2>/dev/null) || return
-  echo " ($b)"
+  echo " %F{yellow}($b)%f"
 }
 
-PS1="%n@%m %1~\$(parse_git_branch) %# "
+PS1="%n %F{blue}%1~%f\$(parse_git_branch) %# "
